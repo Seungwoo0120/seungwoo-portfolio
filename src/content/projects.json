@@ -1,0 +1,1362 @@
+[
+  {
+    "id": "onoff",
+    "title": "ONOFF",
+    "subtitle": "A university community, connected.",
+    "category": "Full-stack",
+    "categories": [
+      "Full-stack",
+      "Backend & data"
+    ],
+    "kind": "Team project",
+    "role": "Full-stack contributor",
+    "sourceVisibility": "private",
+    "status": "In development",
+    "featured": true,
+    "visual": "phones",
+    "accent": "sage",
+    "summary": "Connecting community feeds, meetups, crews, and chat — with careful attention to the API and data rules behind the interface.",
+    "overview": "ONOFF brings social activity and community features into one application. My verified work spans meeting validation, crew membership and approvals, contextual chat access, profile consistency, and regression tests. It is a shared codebase, and the architecture and product screens shown here describe the team’s application.",
+    "contributions": [
+      "Added integer-range validation for meeting capacity and cost inputs, with regression tests for oversized values.",
+      "Contributed crew membership privacy, approval flows, chat requests, and access checks across the interface and API.",
+      "Fixed profile-name consistency and chat nickname display, and improved crew category and capacity editing."
+    ],
+    "stack": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "WebSocket"
+    ],
+    "features": [
+      {
+        "title": "Meetups & crews",
+        "body": "Community activity, membership, approvals, and member-only information."
+      },
+      {
+        "title": "Contextual chat",
+        "body": "REST and WebSocket chat paths connected to membership and access rules."
+      },
+      {
+        "title": "Consistent identity",
+        "body": "Profile changes reflected across content rather than leaving stale display names."
+      }
+    ],
+    "challenges": [
+      {
+        "title": "Turning intermittent 500s into useful input feedback",
+        "problem": "Unbounded capacity and cost inputs could exceed a PostgreSQL INTEGER column’s range. A data constraint surfaced as a generic server failure.",
+        "solution": "I added a shared integer validator and applied it to relevant meeting and crew inputs. Regression tests cover invalid values, alongside corresponding interface constraints."
+      },
+      {
+        "title": "Treating membership as an access rule",
+        "problem": "Joining a crew, approving a request, and entering a chat are related actions. An interface-only check cannot keep those states consistent.",
+        "solution": "I worked across route handlers, shared access helpers, and interface flows so membership and approval rules are enforced at the API boundary."
+      }
+    ],
+    "results": [
+      {
+        "value": "513",
+        "label": "Backend tests passed",
+        "detail": "The existing team suite ran against a new, isolated PostgreSQL database."
+      },
+      {
+        "value": "6 + 5",
+        "label": "Frontend checks passed",
+        "detail": "Navigation and chat-request tests, plus a successful build and type check."
+      },
+      {
+        "value": "Local UI",
+        "label": "Authenticated flow checked",
+        "detail": "Login, OFF home, and Buzz were reviewed using a synthetic account and test fixtures."
+      }
+    ],
+    "boundaries": [
+      "Production usage, release status, mobile-device builds, and push delivery were not verified.",
+      "Lint completed with 0 errors and 183 warnings; passing does not mean warning-free.",
+      "Career API and mail-test changes with ambiguous branch integration are excluded from my confirmed contribution claims."
+    ],
+    "evidenceNote": "Repository and commit details remain private. Verification was performed on a fixed local snapshot on 6 November 2026. Test totals describe the project’s suite, not tests authored solely by me.",
+    "images": [
+      {
+        "src": "/images/onoff/play.webp",
+        "alt": "ONOFF meetup home with a list of synthetic community fixtures.",
+        "caption": "Local test database and synthetic account. These are test fixtures, not production users or activity.",
+        "sourceVisibility": "private"
+      },
+      {
+        "src": "/images/onoff/buzz.webp",
+        "alt": "ONOFF community feed in the local test environment.",
+        "caption": "Team product UI, shown to illustrate the context of my full-stack contributions.",
+        "sourceVisibility": "private"
+      }
+    ],
+    "links": [],
+    "cover": "/images/onoff/play.webp",
+    "architecture": {
+      "caption": "One Express process mounts the feature routers. The folder names do not imply independently deployed microservices.",
+      "nodes": [
+        {
+          "label": "React + Vite",
+          "detail": "Community interface",
+          "col": 0,
+          "row": 0
+        },
+        {
+          "label": "Express API",
+          "detail": "Single server process",
+          "col": 1,
+          "row": 0
+        },
+        {
+          "label": "Feature routes",
+          "detail": "Auth · crews · feeds",
+          "col": 2,
+          "row": 0
+        },
+        {
+          "label": "PostgreSQL",
+          "detail": "Relational records",
+          "col": 3,
+          "row": 0
+        },
+        {
+          "label": "WebSocket",
+          "detail": "Chat on the same server",
+          "col": 1,
+          "row": 1
+        }
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "id": "patrol-pro",
+    "title": "Patrol Pro",
+    "subtitle": "An Arduino safety module for an autonomous patrol robot.",
+    "category": "Embedded systems",
+    "categories": [
+      "Systems"
+    ],
+    "kind": "University team project",
+    "role": "Embedded safety module contributor",
+    "sourceVisibility": "documented",
+    "status": "Hardware demo prototype",
+    "summary": "Tuned flame and gas sensing on an Arduino Mega and integrated visible and audible warnings for an indoor patrol robot.",
+    "overview": "Patrol Pro is an HKU group project that combines an Arduino Mega control layer with Jetson Nano perception. My work focused on the Arduino hazard response. I compared baseline and exposure readings, set sensor-specific thresholds, and connected fire and gas alert states to onboard warnings.",
+    "contributions": [
+      "Implemented and tested the Arduino smoke and fire detection module. Measured baseline and flame-triggered readings across the front, side, and rear sensor positions.",
+      "Tested the MQ-2 response under gas and smoke exposure and tuned the detection threshold to limit false alerts during the demonstration.",
+      "Integrated the fire and gas alert states with the LED, OLED, and buzzer outputs.",
+      "Helped run the final demo, planned and edited most of the product video, and documented sensor behavior and threshold logic for the team report."
+    ],
+    "stack": [
+      "Arduino Mega",
+      "IR flame sensors",
+      "MQ-2 gas sensor",
+      "LED / OLED / buzzer",
+      "Jetson Nano (team perception)"
+    ],
+    "features": [
+      {
+        "title": "Flame sensing around the chassis",
+        "body": "A front five-channel IR detector and side and rear IR sensors sample for flame from different positions around the robot."
+      },
+      {
+        "title": "Gas and smoke sensing",
+        "body": "The Arduino polls the MQ-2 alongside the IR sensors and evaluates its readings against a separately tuned threshold."
+      },
+      {
+        "title": "Local hazard warnings",
+        "body": "The fire or gas state drives LED, OLED, and buzzer outputs so the alert is visible and audible on the robot."
+      },
+      {
+        "title": "Team patrol and monitoring",
+        "body": "Teammates handled Jetson vision, person detection, face and QR verification, and the dashboard and incident logging. Chassis integration was shared."
+      }
+    ],
+    "challenges": [
+      {
+        "title": "Handle opposite flame sensor readings",
+        "problem": "The front detector started low and rose when exposed to flame. Side and rear sensors started high and dropped sharply near a direct flame.",
+        "solution": "I measured the baseline and hazard readings at each position. I used a rising threshold for the front array and a falling threshold for the side and rear sensors."
+      },
+      {
+        "title": "Tune for the gradual MQ-2 response",
+        "problem": "Gas and smoke exposure produced a smaller, slower change than the IR sensors. Threshold placement affected how easily the robot raised a false alert.",
+        "solution": "I compared normal readings with readings during exposure and tuned the MQ-2 threshold separately, then repeated the sensor-triggered demo sequence."
+      },
+      {
+        "title": "Coordinate several warnings from one state",
+        "problem": "A hazard needed to produce a consistent visible and audible warning during the demo.",
+        "solution": "I connected the warning outputs to the Arduino fire and gas states so they followed the same hazard decision."
+      }
+    ],
+    "architecture": {
+      "caption": "The IR and MQ-2 sensors feed the Arduino in parallel. Sensor-specific threshold checks determine a fire or gas state, which drives the onboard warnings. The team’s Jetson perception and dashboard are outside this module diagram.",
+      "nodes": [
+        {
+          "label": "IR flame sensors",
+          "detail": "Front · side · rear",
+          "col": 0,
+          "row": 0
+        },
+        {
+          "label": "MQ-2 gas sensor",
+          "detail": "Gas / smoke response",
+          "col": 0,
+          "row": 1
+        },
+        {
+          "label": "Arduino Mega",
+          "detail": "Poll and check thresholds",
+          "col": 1,
+          "row": 0
+        },
+        {
+          "label": "Fire / gas state",
+          "detail": "Select alert behavior",
+          "col": 2,
+          "row": 0
+        },
+        {
+          "label": "Warning outputs",
+          "detail": "LED · OLED · buzzer",
+          "col": 3,
+          "row": 0
+        }
+      ],
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    "results": [
+      {
+        "value": "2 patterns",
+        "label": "Flame sensor response",
+        "detail": "The original project portfolio records a rise at the front detector and a drop at the side and rear sensors."
+      },
+      {
+        "value": "3 outputs",
+        "label": "Onboard warning integration",
+        "detail": "The module connects the hazard state to the LED, OLED, and buzzer."
+      },
+      {
+        "value": "Hardware demo",
+        "label": "Sensor-triggered checks",
+        "detail": "The project portfolio documents repeated checks on the robot and includes photos of the warning response and a link to the team demo."
+      }
+    ],
+    "boundaries": [
+      "The available evidence is the original project portfolio and team demo. Firmware and raw readings were unavailable for independent review.",
+      "The documented checks cover demo conditions. Detection range, response time, false-alert rate, and safety certification are unverified."
+    ],
+    "evidenceNote": "Photos and sensor behavior come from my original HKU project portfolio. The linked video is the team demo.",
+    "images": [
+      {
+        "src": "/images/patrol-pro/robot.webp",
+        "alt": "Completed Patrol Pro robot with its lights on",
+        "caption": "The assembled Patrol Pro robot used for the team’s indoor patrol demonstration.",
+        "sourceVisibility": "private"
+      },
+      {
+        "src": "/images/patrol-pro/sensors.webp",
+        "alt": "Close-up of the hazard sensors mounted below the robot’s body",
+        "caption": "Hazard sensors mounted on the robot and connected to the Arduino safety module.",
+        "sourceVisibility": "private"
+      },
+      {
+        "src": "/images/patrol-pro/warning-closeup.webp",
+        "alt": "Close-up of the robot with red warning lights active",
+        "caption": "Close-up of the onboard visual warning during the hardware demonstration.",
+        "sourceVisibility": "private"
+      },
+      {
+        "src": "/images/patrol-pro/warning-robot.webp",
+        "alt": "Patrol Pro robot with its red warning lights active",
+        "caption": "The robot showing its onboard warning response in the demo setup.",
+        "sourceVisibility": "private"
+      },
+      {
+        "src": "/images/patrol-pro/dashboard.webp",
+        "alt": "Patrol Pro dashboard displaying a Danger Detected alert",
+        "caption": "A fire or gas warning in the team dashboard, shown for system context. The dashboard was team work.",
+        "sourceVisibility": "private"
+      }
+    ],
+    "links": [
+      {
+        "label": "Watch the team demo",
+        "url": "https://youtu.be/wIAHvmdjDIE"
+      }
+    ],
+    "cover": "/images/patrol-pro/robot.webp",
+    "visual": "photo",
+    "accent": "sand",
+    "featured": true
+  },
+  {
+    "id": "studypilot",
+    "title": "StudyPilot",
+    "subtitle": "From course material to a study plan.",
+    "category": "Full-stack",
+    "categories": [
+      "Full-stack",
+      "Backend & data"
+    ],
+    "kind": "Team project",
+    "role": "Full-stack & service integration",
+    "sourceVisibility": "private",
+    "status": "Prototype · known build issue",
+    "featured": false,
+    "visual": "desktop",
+    "accent": "lavender",
+    "summary": "Course-material workflows and study planning across a React interface, Spring Boot APIs, and a Python service.",
+    "overview": "StudyPilot connects course materials, assessment schedules, availability, and study tasks. My contribution is in the integration: plan and task APIs, data transfer between services, material flows, and Study Room features. The current code also includes a deterministic planning core, whose complete original authorship I do not claim.",
+    "contributions": [
+      "Contributed assessment, study-plan, and task API changes, including Java DTOs, service logic, and frontend wiring.",
+      "Connected course-material input and Study Room lecture flows across React, Spring Boot, and Python.",
+      "Improved English UI and email copy and contributed authentication and configuration changes."
+    ],
+    "stack": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Python",
+      "FastAPI"
+    ],
+    "features": [
+      {
+        "title": "Material workflow",
+        "body": "Course material input and upload paths connected to course and lecture services."
+      },
+      {
+        "title": "Plan generation",
+        "body": "Study tasks derived from assessments and available capacity, with unallocated work reported."
+      },
+      {
+        "title": "Study Room",
+        "body": "A connected interface and service path for turning material into structured lecture sections."
+      }
+    ],
+    "challenges": [
+      {
+        "title": "Keeping service boundaries explicit",
+        "problem": "The interface, Java API, and Python planning service need to agree on assessments, time slots, tasks, and work that cannot be scheduled.",
+        "solution": "I contributed typed transfer objects, service calls, and API wiring so these concepts can move through the stack without being hidden in interface-only state."
+      },
+      {
+        "title": "Reporting what a plan could not fit",
+        "problem": "A planning response can look complete while silently dropping workload that exceeds the user’s capacity.",
+        "solution": "The current planning core returns both scheduled tasks and unallocated work. I contributed to the connected plan/task flow; review checked a fixed-input scenario for determinism and conservation of work."
+      }
+    ],
+    "results": [
+      {
+        "value": "240 / 60",
+        "label": "Minutes allocated / remaining",
+        "detail": "One smoke scenario: 300 minutes of work, four 60-minute daily capacities."
+      },
+      {
+        "value": "Deterministic",
+        "label": "Same-input check",
+        "detail": "The smoke scenario reproduced the same result and preserved the total workload."
+      },
+      {
+        "value": "UI preview",
+        "label": "Screens reviewed",
+        "detail": "Landing and login screens were captured using a transpile-only preview."
+      }
+    ],
+    "boundaries": [
+      "The standard frontend build failed with a number/string comparison type error. A UI preview is not a successful production build.",
+      "The legacy root demo command also failed because of an app module-name conflict.",
+      "Spring, authentication, email, uploads, and LLM services were not validated together end to end. The single planner scenario is not a complete correctness proof."
+    ],
+    "evidenceNote": "This is private team work. The preview and the known build failure are reported separately; integration commits may include shared code.",
+    "images": [
+      {
+        "src": "/images/studypilot/landing.webp",
+        "alt": "StudyPilot landing page from a local frontend preview.",
+        "caption": "Transpile-only UI preview. The standard type-checked build currently fails.",
+        "sourceVisibility": "private"
+      },
+      {
+        "src": "/images/studypilot/login.webp",
+        "alt": "StudyPilot login interface from the same frontend preview.",
+        "caption": "Interface-only review; authentication and the Spring backend were not connected in this run.",
+        "sourceVisibility": "private"
+      }
+    ],
+    "links": [],
+    "cover": "/images/studypilot/landing.webp",
+    "architecture": {
+      "caption": "Source structure, not a claim that all services were successfully run together.",
+      "nodes": [
+        {
+          "label": "React",
+          "detail": "Course & study UI",
+          "col": 0,
+          "row": 0
+        },
+        {
+          "label": "Spring Boot",
+          "detail": "Auth · courses · plans",
+          "col": 1,
+          "row": 0
+        },
+        {
+          "label": "PostgreSQL",
+          "detail": "Application records",
+          "col": 2,
+          "row": 0
+        },
+        {
+          "label": "FastAPI",
+          "detail": "Python service boundary",
+          "col": 1,
+          "row": 1
+        },
+        {
+          "label": "Planner / extraction",
+          "detail": "Rules + optional LLM",
+          "col": 2,
+          "row": 1
+        }
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    }
+  },
+  {
+    "id": "stockseek",
+    "title": "StockSeek",
+    "subtitle": "Experiments at the data collection boundary.",
+    "category": "FinTech",
+    "categories": [
+      "FinTech",
+      "Backend & data"
+    ],
+    "kind": "Team prototype",
+    "role": "RSS collection contributor",
+    "sourceVisibility": "private",
+    "status": "Limited contribution scope",
+    "featured": false,
+    "visual": "desktop",
+    "accent": "sand",
+    "summary": "RSS-request and article-extraction experiments within a team financial-news prototype.",
+    "overview": "StockSeek explores financial-news collection, keyword search, and sentiment analysis. My confirmed contribution is narrower than the full product: RSS request handling and article-extraction experiments, with related dependency and documentation updates. Two repositories share the same underlying history and are treated as one project.",
+    "contributions": [
+      "Added User-Agent handling to RSS requests.",
+      "Contributed article-collection and extraction experiments and related dependency and documentation updates.",
+      "Kept three test-file commits separate from substantive product work when documenting my role."
+    ],
+    "stack": [
+      "Python",
+      "FastAPI",
+      "feedparser",
+      "requests",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "features": [
+      {
+        "title": "Collection experiments",
+        "body": "Request and parsing experiments around RSS feeds and article content."
+      },
+      {
+        "title": "Search pipeline",
+        "body": "The team code includes article files, keyword search, and optional sentiment-result caching."
+      },
+      {
+        "title": "Static interface",
+        "body": "An HTML/JavaScript interface illustrates the intended product workflow."
+      }
+    ],
+    "challenges": [
+      {
+        "title": "Small request details affect collection",
+        "problem": "Feeds and article pages behave differently across sources. A parser alone does not make the request and extraction path reliable.",
+        "solution": "I added explicit User-Agent handling and worked on extraction experiments. This is recorded as collection work, rather than ownership of the full sentiment or interface stack."
+      },
+      {
+        "title": "Separating a product idea from demonstrated behavior",
+        "problem": "A financial interface can display convincing prices and news without those values being backed by a verified live pipeline.",
+        "solution": "The case study labels its captured interface as a static example. Scraping, live data quality, LLM analysis, and investment performance were not verified."
+      }
+    ],
+    "results": [
+      {
+        "value": "RSS",
+        "label": "Contribution verified",
+        "detail": "Request-header and extraction experiment changes were identified in Git history."
+      },
+      {
+        "value": "One project",
+        "label": "Duplicate histories grouped",
+        "detail": "The two repositories share 23 commits; the smaller history is contained in the larger one."
+      },
+      {
+        "value": "UI only",
+        "label": "Runtime scope",
+        "detail": "The static interface was opened locally. The collection and sentiment APIs were not run."
+      }
+    ],
+    "boundaries": [
+      "Prices, news, and chart labels in the screenshot are static examples, not verified real-time information.",
+      "I do not claim authorship of the full frontend, sentiment model, or account system.",
+      "The code currently uses FastAPI and a static frontend; the older README’s Flask/React description does not describe that structure accurately."
+    ],
+    "evidenceNote": "Private repository. The backend’s scheduled external collection was not started during review; no investment results are claimed.",
+    "images": [
+      {
+        "src": "/images/stockseek/interface.webp",
+        "alt": "StockSeek static financial-news interface with example prices and headlines.",
+        "caption": "Static examples only. No live-price, news-accuracy, or sentiment-analysis validation was performed.",
+        "sourceVisibility": "private"
+      }
+    ],
+    "links": [],
+    "cover": "/images/stockseek/interface.webp",
+    "architecture": {
+      "caption": "The source pipeline was inspected. The dotted conceptual boundary to external feeds was not exercised during review.",
+      "nodes": [
+        {
+          "label": "External feeds",
+          "detail": "Not run in review",
+          "col": 0,
+          "row": 0
+        },
+        {
+          "label": "Article collection",
+          "detail": "Files & extraction",
+          "col": 1,
+          "row": 0
+        },
+        {
+          "label": "Search + sentiment",
+          "detail": "Optional model / cache",
+          "col": 2,
+          "row": 0
+        },
+        {
+          "label": "FastAPI + HTML UI",
+          "detail": "Integration unverified",
+          "col": 3,
+          "row": 0
+        }
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "id": "hk-health-companion",
+    "title": "HK Health Companion",
+    "subtitle": "Medication forms that keep their context.",
+    "category": "Full-stack",
+    "categories": [
+      "Full-stack",
+      "Backend & data"
+    ],
+    "kind": "Team student prototype",
+    "role": "Medication feature owner",
+    "sourceVisibility": "public",
+    "status": "Mock-mode prototype",
+    "featured": true,
+    "visual": "phones",
+    "accent": "blue",
+    "summary": "Medication management with schedule inputs, sourced warning displays, and form flows that preserve user input when requests fail.",
+    "overview": "The team’s health companion helps older people and caregivers organize symptoms and medicines. I owned the medication management interface: add, edit, and confirmed delete flows, schedule inputs, warning display, error handling, and related frontend tests. The product is a student prototype, not a medical service.",
+    "contributions": [
+      "Built medication list, add/edit, and deletion-confirmation screens and connected them through server actions.",
+      "Separated schedule formatting and form validation, including time rows and selected days.",
+      "Handled API failures without losing entered values, and added sourced warnings, retry states, and read-aloud controls."
+    ],
+    "stack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "FastAPI",
+      "SQLAlchemy",
+      "SQLite",
+      "OpenAPI",
+      "Vitest",
+      "pytest"
+    ],
+    "features": [
+      {
+        "title": "Medication management",
+        "body": "Add, edit, and delete medicines, with explicit confirmation for deletion."
+      },
+      {
+        "title": "Schedule inputs",
+        "body": "Store dose, times, selected weekdays, and notes. Stored times do not trigger notifications."
+      },
+      {
+        "title": "Failure-aware forms",
+        "body": "Preserve input on failure and distinguish missing records from service errors."
+      }
+    ],
+    "challenges": [
+      {
+        "title": "A failed request should not erase the task",
+        "problem": "Validation errors, unavailable warning checks, and API failures can interrupt a multi-field medication form.",
+        "solution": "I kept entered values through validation and request failures, retained failed deletions on the confirmation page, and provided retry messages where a warning check failed."
+      },
+      {
+        "title": "Keeping the interface’s promise precise",
+        "problem": "Recording a time can be mistaken for a working reminder system. A displayed interaction warning can be mistaken for AI-generated medical advice.",
+        "solution": "The UI separates schedule storage from notifications and presents warnings with their dataset sources. Medication reminders are not implemented, and broader clinical validation is not claimed."
+      }
+    ],
+    "results": [
+      {
+        "value": "84",
+        "label": "Frontend tests passed",
+        "detail": "Current snapshot of the team frontend suite, including medication-related tests."
+      },
+      {
+        "value": "213",
+        "label": "API tests passed",
+        "detail": "The backend suite passed in local mock mode; these are project-wide totals."
+      },
+      {
+        "value": "CRUD",
+        "label": "Browser flow verified",
+        "detail": "Added, edited, and confirmed deletion of a synthetic record using an isolated SQLite database."
+      }
+    ],
+    "boundaries": [
+      "No medication reminders or notifications are implemented.",
+      "Traditional Chinese text and Cantonese-related content still require native-speaker review.",
+      "Live LLM, hospital-data, and device speech paths were not exercised. The dataset’s complete clinical review is not claimed as my work."
+    ],
+    "evidenceNote": "Team ownership documentation and merged PR #23 identify my medication work. The build, lint, type check, and local mock flow were checked on 6 November 2026.",
+    "images": [
+      {
+        "src": "/images/hk-health-companion/medications.webp",
+        "alt": "Medication list and sourced warning in HK Health Companion.",
+        "caption": "Invented demo health records and a mock API. Not real patient data or a clinical recommendation.",
+        "sourceVisibility": "public"
+      },
+      {
+        "src": "/images/hk-health-companion/form.webp",
+        "alt": "Add-medication form with dose, time, and weekday inputs.",
+        "caption": "My medication interface work in the team prototype. Schedule storage is implemented; notification delivery is not.",
+        "sourceVisibility": "public"
+      }
+    ],
+    "links": [
+      {
+        "label": "GitHub repository",
+        "url": "https://github.com/Seungwoo0120/Gen-AI-Hackathon"
+      },
+      {
+        "label": "My medication PR #23",
+        "url": "https://github.com/Seungwoo0120/Gen-AI-Hackathon/pull/23"
+      }
+    ],
+    "cover": "/images/hk-health-companion/medications.webp",
+    "architecture": {
+      "caption": "The local mock-mode route used for review. Live-source adapters are separate code paths.",
+      "nodes": [
+        {
+          "label": "Next.js screens",
+          "detail": "Medication interface",
+          "col": 0,
+          "row": 0
+        },
+        {
+          "label": "Server actions",
+          "detail": "Typed OpenAPI client",
+          "col": 1,
+          "row": 0
+        },
+        {
+          "label": "FastAPI",
+          "detail": "Records & warnings",
+          "col": 2,
+          "row": 0
+        },
+        {
+          "label": "SQLite + dataset",
+          "detail": "Local demo records",
+          "col": 3,
+          "row": 0
+        }
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "id": "signalforge",
+    "title": "SignalForge",
+    "subtitle": "A strategy-research workflow, made tangible.",
+    "category": "FinTech",
+    "categories": [
+      "FinTech",
+      "Full-stack"
+    ],
+    "kind": "Personal project",
+    "role": "Frontend & typed mock services",
+    "sourceVisibility": "public",
+    "status": "Simulated-data prototype",
+    "featured": true,
+    "visual": "desktop",
+    "accent": "ice",
+    "summary": "A personal interface prototype for configuring rules, comparing simulated strategy runs, and inspecting research results.",
+    "overview": "I built SignalForge to explore a strategy-research workflow before connecting real market infrastructure. The app ties strategy configuration to a screener, simulated results, run history, comparison views, and research notes. Every displayed result is simulated.",
+    "contributions": [
+      "Implemented the dashboard, strategy builder, backtest, screener, and research-note views.",
+      "Separated strategy/result types and mock-service interfaces from the presentation layer.",
+      "Added browser-local presets and run history, comparison flows, responsive tables, and light/dark themes."
+    ],
+    "stack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Recharts",
+      "localStorage"
+    ],
+    "features": [
+      {
+        "title": "Typed service boundary",
+        "body": "The interface consumes explicit strategy and result types rather than embedding all calculations in views."
+      },
+      {
+        "title": "Local research state",
+        "body": "Save strategy presets and run snapshots in the browser and return to them later."
+      },
+      {
+        "title": "Comparison views",
+        "body": "Explore simulated benchmarks, sensitivity scenarios, and rebalance logs."
+      }
+    ],
+    "challenges": [
+      {
+        "title": "A replaceable data boundary",
+        "problem": "It is easy for mock data and view logic to grow together, making a future backend difficult to introduce.",
+        "solution": "I separated typed mock services, shared result contracts, strategy state, and metric helpers. This is a frontend boundary, not an implemented server backtesting engine."
+      },
+      {
+        "title": "Keeping results attached to their inputs",
+        "problem": "A saved run should describe the strategy used at the time, even when the current configuration changes.",
+        "solution": "The app stores browser-local run snapshots and exposes saved-run and current-preview flows. Review verified a simulated run, a stored history entry, and persistence after a reload."
+      }
+    ],
+    "results": [
+      {
+        "value": "5 routes",
+        "label": "Research workflow",
+        "detail": "Dashboard, builder, simulated results, screener, and research notes."
+      },
+      {
+        "value": "Saved run",
+        "label": "Persistence checked",
+        "detail": "A simulated run was stored in localStorage and remained available after a reload."
+      },
+      {
+        "value": "Build passed",
+        "label": "Local validation",
+        "detail": "Lint, type check, and production build passed for the reviewed snapshot."
+      }
+    ],
+    "boundaries": [
+      "No live market-data feed, brokerage integration, authentication, or server database is connected.",
+      "No actual AI/OpenAI call or backend quant engine is implemented.",
+      "Displayed returns, Sharpe ratios, and sensitivity figures are simulated; they are not investment results. There is no repository test suite or CI workflow in the reviewed snapshot."
+    ],
+    "evidenceNote": "Personal prototype with Git history supporting the implementation. All finance-related screenshots retain the simulated-data context.",
+    "images": [
+      {
+        "src": "/images/signalforge/dashboard.webp",
+        "alt": "SignalForge dashboard with simulated strategy metrics.",
+        "caption": "Simulated market and strategy data. This is a frontend prototype, not a validated backtest or investment result.",
+        "sourceVisibility": "public"
+      },
+      {
+        "src": "/images/signalforge/backtest.webp",
+        "alt": "Saved simulated run and local run history in SignalForge.",
+        "caption": "A real screenshot of a simulated run. Performance numbers are illustrative, not evidence of real returns.",
+        "sourceVisibility": "public"
+      }
+    ],
+    "links": [
+      {
+        "label": "GitHub repository",
+        "url": "https://github.com/Seungwoo0120/signalforge"
+      },
+      {
+        "label": "Live prototype",
+        "url": "https://signalforge-beryl.vercel.app"
+      },
+      {
+        "label": "Typed mock-service commit",
+        "url": "https://github.com/Seungwoo0120/signalforge/commit/88ca0e9dd8"
+      }
+    ],
+    "cover": "/images/signalforge/dashboard.webp",
+    "architecture": {
+      "caption": "Client-side research workflow. A real data/backend integration is outside the current implementation.",
+      "nodes": [
+        {
+          "label": "React views",
+          "detail": "Next.js routes",
+          "col": 0,
+          "row": 0
+        },
+        {
+          "label": "Strategy state",
+          "detail": "Providers & hooks",
+          "col": 1,
+          "row": 0
+        },
+        {
+          "label": "Mock services",
+          "detail": "Typed simulated results",
+          "col": 2,
+          "row": 0
+        },
+        {
+          "label": "Charts",
+          "detail": "Recharts views",
+          "col": 3,
+          "row": 0
+        },
+        {
+          "label": "localStorage",
+          "detail": "Presets & saved runs",
+          "col": 1,
+          "row": 1
+        }
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ]
+    }
+  },
+  {
+    "id": "tutorcoach",
+    "title": "TutorCoach",
+    "subtitle": "A dependable starting point for a team’s data.",
+    "category": "Backend",
+    "categories": [
+      "Backend & data",
+      "Full-stack"
+    ],
+    "kind": "Team hackathon MVP",
+    "role": "Database schema & local environment",
+    "sourceVisibility": "public",
+    "status": "MVP · scoped contribution",
+    "featured": false,
+    "visual": "desktop",
+    "accent": "peach",
+    "summary": "Authentication and student-profile schema improvements, plus a repeatable local PostgreSQL setup for a team tutoring MVP.",
+    "overview": "The team built a personalized tutoring prototype with practice screens and coaching flows. My verified substantive contribution is the authentication/student-profile SQL schema and local PostgreSQL environment. The tutor UI is shown for product context; I do not claim the team’s AI, voice, or interface system as my own.",
+    "contributions": [
+      "Corrected SQL enum-string syntax and guarded enum creation so the schema can be applied again.",
+      "Improved users and student-profile tables, relationships, learning preferences, and indexes.",
+      "Added a PostgreSQL 16 Compose configuration with environment inputs, persistent storage, a health check, and setup documentation."
+    ],
+    "stack": [
+      "PostgreSQL",
+      "SQL",
+      "Docker Compose",
+      "FastAPI",
+      "React",
+      "TypeScript",
+      "Vite"
+    ],
+    "features": [
+      {
+        "title": "Auth & student profiles",
+        "body": "Relational user records and learning-preference profiles with explicit relationships."
+      },
+      {
+        "title": "Rerunnable SQL",
+        "body": "Guarded type and table creation for a more predictable setup process."
+      },
+      {
+        "title": "Local database setup",
+        "body": "Compose configuration with a persistent volume and a database health check."
+      }
+    ],
+    "challenges": [
+      {
+        "title": "A setup script is also an interface",
+        "problem": "Incorrect enum quoting and unconditional type creation made the schema harder to apply reliably in a shared environment.",
+        "solution": "I corrected the SQL syntax and made creation conditional. During review, the schema was applied twice to a fresh PostgreSQL database; both applications succeeded."
+      },
+      {
+        "title": "Making the database’s readiness visible",
+        "problem": "A running container does not necessarily mean its database is ready for connections.",
+        "solution": "I added a pg_isready health check, documented environment configuration, and persistent storage in Compose. The configuration was reviewed; Docker itself was unavailable in the review environment."
+      }
+    ],
+    "results": [
+      {
+        "value": "2 × success",
+        "label": "Schema application",
+        "detail": "The reviewed SQL was applied twice to an isolated PostgreSQL database."
+      },
+      {
+        "value": "Build passed",
+        "label": "Frontend context checked",
+        "detail": "The team frontend built and its entry and guest-home screens were reviewed locally."
+      },
+      {
+        "value": "2 commits",
+        "label": "Substantive contribution",
+        "detail": "Schema and Docker/setup changes; merge commits are not counted as feature work."
+      }
+    ],
+    "boundaries": [
+      "Docker Compose was not actually started because Docker was not installed. Direct SQL validation is a separate result.",
+      "The API ran in its in-memory fallback mode; remote RDS, S3, LLM, voice, and a complete practice session were not exercised.",
+      "My confirmed ownership is the database/setup work, not the full tutoring product."
+    ],
+    "evidenceNote": "Public schema and Compose commits provide precise contribution evidence; product UI screenshots retain the team attribution.",
+    "images": [
+      {
+        "src": "/images/tutorcoach/home.webp",
+        "alt": "TutorCoach guest dashboard in local in-memory mode.",
+        "caption": "Team product UI for context. My verified contribution is the PostgreSQL schema and Docker environment, not the whole frontend.",
+        "sourceVisibility": "public"
+      }
+    ],
+    "links": [
+      {
+        "label": "GitHub repository",
+        "url": "https://github.com/hkucepai/PersonalizedAITutors"
+      },
+      {
+        "label": "My schema commit",
+        "url": "https://github.com/hkucepai/PersonalizedAITutors/commit/e2b78271e92da397af7bb6cfcbfa1630fc5ad516"
+      },
+      {
+        "label": "My Docker/setup commit",
+        "url": "https://github.com/hkucepai/PersonalizedAITutors/commit/f3b50397589cb050eef49d9ebf83da4d981a9b2c"
+      }
+    ],
+    "cover": "/images/tutorcoach/home.webp",
+    "architecture": {
+      "caption": "A diagram centered on my contribution. Review used the in-memory API path and directly checked the SQL in PostgreSQL.",
+      "nodes": [
+        {
+          "label": "React client",
+          "detail": "Team tutoring UI",
+          "col": 0,
+          "row": 0
+        },
+        {
+          "label": "FastAPI",
+          "detail": "In-memory fallback used",
+          "col": 1,
+          "row": 0
+        },
+        {
+          "label": "PostgreSQL schema",
+          "detail": "Auth & student profiles",
+          "col": 2,
+          "row": 0
+        },
+        {
+          "label": "Compose config",
+          "detail": "Configured, not started",
+          "col": 2,
+          "row": 1
+        }
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "id": "i4-rth",
+    "title": "RTH Simulation Tooling",
+    "subtitle": "Making route-planning behavior visible.",
+    "category": "Systems",
+    "categories": [
+      "Systems"
+    ],
+    "kind": "Internship collaboration",
+    "role": "Simulation workflow contributor",
+    "sourceVisibility": "private",
+    "status": "Confidential company work",
+    "featured": false,
+    "visual": "diagram",
+    "accent": "sage",
+    "summary": "Browser-based simulation tooling developed during a robotics/software internship at i4 Technology in Hong Kong.",
+    "overview": "This work explores route-planning behavior in a simulated environment. My contributions focused on layout editing, sizing and rotation workflows, visit-order interaction, and visual interpretation of route and clearance checks. Company source, catalogs, and screenshots are intentionally omitted from this public-facing draft.",
+    "contributions": [
+      "Contributed layout-editing and sizing/rotation workflow improvements.",
+      "Worked on visit-order interaction and route-comparison presentation.",
+      "Helped distinguish simulation assumptions and visual checks from physical-robot validation."
+    ],
+    "stack": [
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Canvas 2D",
+      "JSON"
+    ],
+    "features": [
+      {
+        "title": "Editable layouts",
+        "body": "A browser interface for changing a simulated environment."
+      },
+      {
+        "title": "Route interpretation",
+        "body": "Visual comparison of routes and the assumptions behind their evaluation."
+      },
+      {
+        "title": "Simulation boundaries",
+        "body": "Clear separation between a browser demonstration and a validated physical system."
+      }
+    ],
+    "challenges": [
+      {
+        "title": "The shortest route is not the whole story",
+        "problem": "A route’s visual length does not by itself explain how geometry, object dimensions, and turning clearance affect its suitability.",
+        "solution": "I contributed workflows that make those factors visible during editing and comparison. The public diagram is deliberately simplified and contains no company implementation detail."
+      },
+      {
+        "title": "Communicating the scope of a demonstration",
+        "problem": "A convincing simulation can be mistaken for a hardware-integrated or certified safety system.",
+        "solution": "I kept the work framed as browser simulation tooling. The review observed UI behavior only and did not validate a physical robot or a certified safety standard."
+      }
+    ],
+    "results": [
+      {
+        "value": "Browser demo",
+        "label": "Local behavior reviewed",
+        "detail": "Layout UI and route-result presentation were exercised in a local simulation."
+      },
+      {
+        "value": "Workflow",
+        "label": "Contribution verified",
+        "detail": "Git history supports changes to editing, sizing, and comparison workflows."
+      },
+      {
+        "value": "Private",
+        "label": "Company materials protected",
+        "detail": "No company screenshots, code, catalogs, or private repository links are shipped."
+      }
+    ],
+    "boundaries": [
+      "This is not Patrol Pro, and the two projects are not combined.",
+      "Physical hardware, ROS integration, sensor fusion, and hospital deployment were not verified from this repository.",
+      "Simulation timings and distances are not published as benchmarks or safety results."
+    ],
+    "evidenceNote": "This is a high-level summary of private internship work. The diagram is a simplified editorial explanation, not company source or an internal design document.",
+    "images": [],
+    "links": [],
+    "cover": null,
+    "architecture": {
+      "caption": "High-level conceptual workflow only. Company implementation and materials are not included.",
+      "nodes": [
+        {
+          "label": "Layout input",
+          "detail": "Editable simulation",
+          "col": 0,
+          "row": 0
+        },
+        {
+          "label": "Geometry model",
+          "detail": "Dimensions & constraints",
+          "col": 1,
+          "row": 0
+        },
+        {
+          "label": "Route comparison",
+          "detail": "Visual evaluation",
+          "col": 2,
+          "row": 0
+        },
+        {
+          "label": "Canvas preview",
+          "detail": "Browser simulation",
+          "col": 3,
+          "row": 0
+        }
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "id": "haunted-memories",
+    "title": "Haunted Memories",
+    "subtitle": "An escape room inside the terminal.",
+    "category": "Systems",
+    "categories": [
+      "Systems"
+    ],
+    "kind": "University team project",
+    "role": "C++ & game-resource contributor",
+    "sourceVisibility": "public",
+    "status": "Source rebuilt · startup checked",
+    "featured": false,
+    "visual": "terminal",
+    "accent": "slate",
+    "summary": "A C++/ncurses escape game with shared work on the main program, random room/key placement, map resources, and character UI.",
+    "overview": "Players explore a school and search for keys in a terminal escape game. I contributed main-program changes, random room and resource-selection work, room maps, and character/UI files. The game’s full engine, timer, and inventory are team work rather than my sole implementation.",
+    "contributions": [
+      "Contributed changes to the main program’s random-room and resource-selection flow.",
+      "Added and organized room-map and character/UI text resources.",
+      "Participated in MainEngine behavior and interface changes."
+    ],
+    "stack": [
+      "C++11",
+      "ncurses",
+      "Make",
+      "File I/O"
+    ],
+    "features": [
+      {
+        "title": "Terminal interface",
+        "body": "ncurses windows and character-based maps form the game’s interface."
+      },
+      {
+        "title": "Variable exploration",
+        "body": "Randomized room/resource selection changes the exploration context."
+      },
+      {
+        "title": "File-backed resources",
+        "body": "Text maps and local state files are loaded and used by separate C++ modules."
+      }
+    ],
+    "challenges": [
+      {
+        "title": "Coordinating maps and the main flow",
+        "problem": "Multiple rooms, text resources, and movement/display modules have to agree on resource selection and program flow.",
+        "solution": "I worked on the main program and map/character resources as part of the team’s integration. The current code retains contributions from several authors."
+      },
+      {
+        "title": "Proving the source still runs",
+        "problem": "A repository can contain a prebuilt executable that no longer proves its current source compiles.",
+        "solution": "Review removed the runtime copy’s existing build artifacts, ran a clean source compilation, and recorded the game in a fresh pseudo-terminal."
+      }
+    ],
+    "results": [
+      {
+        "value": "Clean rebuild",
+        "label": "C++ compilation passed",
+        "detail": "make clean followed by make MAIN rebuilt the current source."
+      },
+      {
+        "value": "160 × 48",
+        "label": "Terminal recording",
+        "detail": "Startup and opening dialogue were captured in a fresh pseudo-terminal."
+      },
+      {
+        "value": "Team work",
+        "label": "Attribution retained",
+        "detail": "My main-program and resource changes are separated from the team’s complete engine."
+      }
+    ],
+    "boundaries": [
+      "A complete playthrough, all room transitions, inventory behavior, and timing limits were not verified.",
+      "The images render actual recorded terminal output; they are not direct screenshots of an OS terminal app.",
+      "The separate Second repository is not added to this project’s contribution claims."
+    ],
+    "evidenceNote": "The public repository and contribution history support the role described here. The recording is limited to the startup and introduction.",
+    "images": [
+      {
+        "src": "/images/haunted-memories/start.webp",
+        "alt": "Haunted Memories start menu rendered from a recorded ncurses terminal buffer.",
+        "caption": "Actual game output recorded at 160 × 48 cells, then rendered for viewing. A full playthrough was not performed.",
+        "sourceVisibility": "public"
+      }
+    ],
+    "links": [
+      {
+        "label": "GitHub repository",
+        "url": "https://github.com/mck0124/ENGG1340-Group55"
+      },
+      {
+        "label": "My contribution history",
+        "url": "https://github.com/mck0124/ENGG1340-Group55/commits/main/?author=Seungwoo0120"
+      }
+    ],
+    "cover": "/images/haunted-memories/start.webp",
+    "architecture": {
+      "caption": "Current module responsibilities, not sole ownership of the complete engine.",
+      "nodes": [
+        {
+          "label": "MAIN.cpp",
+          "detail": "Start & random choices",
+          "col": 0,
+          "row": 0
+        },
+        {
+          "label": "MainEngine",
+          "detail": "Movement & windows",
+          "col": 1,
+          "row": 0
+        },
+        {
+          "label": "ncurses",
+          "detail": "Terminal interface",
+          "col": 2,
+          "row": 0
+        },
+        {
+          "label": "Map loader",
+          "detail": "Text resource files",
+          "col": 0,
+          "row": 1
+        },
+        {
+          "label": "Local files",
+          "detail": "Saved status",
+          "col": 2,
+          "row": 1
+        }
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          1,
+          4
+        ]
+      ]
+    }
+  }
+]

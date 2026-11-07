@@ -1,0 +1,20 @@
+{
+  "name": "Seungwoo Noh",
+  "education": "Computer Engineering, The University of Hong Kong",
+  "headline": "Building across the stack.",
+  "intro": "I connect interfaces, APIs, and data — and test the handoffs between them.",
+  "interests": "Software engineering · Full-stack · Backend",
+  "github": "https://github.com/Seungwoo0120",
+  "linkedin": "https://www.linkedin.com/in/seungwoo-noh/",
+  "resume": null,
+  "verifiedAt": "2026-11-06",
+  "skills": ["TypeScript", "React", "Node.js", "PostgreSQL", "Python", "FastAPI", "Java", "C++"],
+  "experience": {
+    "company": "i4 Technology",
+    "location": "Hong Kong",
+    "role": "Robotics / Software Internship",
+    "summary": "Worked on browser-based simulation tooling for path-planning workflows, with an emphasis on layout editing and visual comparison.",
+    "details": ["Contributed layout and simulation workflow improvements.", "Explored how geometry, robot dimensions, and turning clearance affect route interpretation.", "Kept simulation results distinct from physical-robot validation."],
+    "projectId": "i4-rth"
+  }
+}
